@@ -25,7 +25,7 @@ find_package(PkgConfig)
 # if pkg-config has been found
 if(PKG_CONFIG_EXECUTABLE)
 
-    execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --modversion taglib RESULT_VARIABLE _return_VALUE OUTPUT_VARIABLE TAGLIB_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
+  execute_process(COMMAND ${PKG_CONFIG_EXECUTABLE} --modversion taglib RESULT_VARIABLE _return_VALUE OUTPUT_VARIABLE TAGLIB_VERSION OUTPUT_STRIP_TRAILING_WHITESPACE)
   message(${TAGLIB_VERSION})
 
   if(TAGLIB_VERSION VERSION_LESS "${TAGLIB_MIN_VERSION}")
@@ -41,7 +41,7 @@ if(PKG_CONFIG_EXECUTABLE)
         set(TAGLIB_FOUND TRUE)
      endif(TAGLIB_LIBRARIES AND TAGLIB_CFLAGS)
      string(REGEX REPLACE " *-I" ";" TAGLIB_INCLUDES "${TAGLIB_CFLAGS}")
-  endif(TAGLIB_VERSION VERSION_LESS "${TAGLIB_MIN_VERSION}") 
+  endif(TAGLIB_VERSION VERSION_LESS "${TAGLIB_MIN_VERSION}")
   mark_as_advanced(TAGLIB_CFLAGS TAGLIB_LIBRARIES TAGLIB_INCLUDES)
 
 else(PKG_CONFIG_EXECUTABLE)
@@ -63,10 +63,10 @@ else(PKG_CONFIG_EXECUTABLE)
     ELSE(NOT WIN32)
 
       # 1. get all possible libnames
-      SET(args PATHS ${KDE4_LIB_DIR} ${LIB_INSTALL_DIR})             
-      SET(newargs "")               
-      SET(libnames_release "")      
-      SET(libnames_debug "")        
+      SET(args PATHS ${KDE4_LIB_DIR} ${LIB_INSTALL_DIR})
+      SET(newargs "")
+      SET(libnames_release "")
+      SET(libnames_debug "")
 
       LIST(LENGTH args listCount)
 
@@ -114,7 +114,7 @@ else(PKG_CONFIG_EXECUTABLE)
       MARK_AS_ADVANCED(TAGLIB_LIBRARIES_DEBUG)
 
     ENDIF(NOT WIN32)
-  
+
   INCLUDE(FindPackageMessage)
   INCLUDE(FindPackageHandleStandardArgs)
   FIND_PACKAGE_HANDLE_STANDARD_ARGS(Taglib DEFAULT_MSG TAGLIB_INCLUDES TAGLIB_LIBRARIES)
