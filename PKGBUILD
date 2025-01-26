@@ -13,8 +13,8 @@ depends=(
   libmtp
   libmusicbrainz5
   mpg123
-  qt5-multimedia
-  qt5-svg
+  qt6-multimedia
+  qt6-svg
   taglib
   libebur128
   ffmpeg
