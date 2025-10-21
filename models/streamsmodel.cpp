@@ -38,6 +38,7 @@
 #include "config.h"
 #include "support/globalstatic.h"
 #include <QModelIndex>
+#include <QRegularExpression>
 #include <QString>
 #include <QSet>
 #include <QVariant>
