@@ -80,8 +80,9 @@ PodcastService::Proxy::Proxy(QObject *parent)
 void PodcastService::Proxy::showUnplayedOnly(bool on)
 {
     if (on!=unplayedOnly) {
+        beginFilterChange();
         unplayedOnly=on;
-        invalidateFilter();
+        endFilterChange();
     }
 }
 

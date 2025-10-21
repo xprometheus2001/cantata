@@ -31,8 +31,9 @@ ShortcutsFilter::ShortcutsFilter(QObject *parent) : QSortFilterProxyModel(parent
 }
 
 void ShortcutsFilter::setFilterString(const QString &filterString) {
+  beginFilterChange();
   _filterString = filterString;
-  invalidateFilter();
+  endFilterChange();
 }
 
 bool ShortcutsFilter::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const {

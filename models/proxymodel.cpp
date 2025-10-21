@@ -145,18 +145,22 @@ bool ProxyModel::update(const QString &txt)
 
     if (text.isEmpty()) {
         if (filterEnabled) {
-            filterEnabled=false;
             if (!wasEmpty) {
+                beginFilterChange();
 //                qWarning() << "INVALIDATE (empty from non)";
-                invalidateFilter();
+                filterEnabled = false;
+                endFilterChange();
 //                qWarning() << "DONE";
+            } else {
+                filterEnabled = false;
             }
             return true;
         }
     } else {
+        beginFilterChange();
         filterEnabled=true;
 //        qWarning() << "INVALIDATE (changed)";
-        invalidateFilter();
+        endFilterChange();
 //        qWarning() << "DONE";
         return true;
     }
