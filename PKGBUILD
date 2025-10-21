@@ -1,10 +1,10 @@
 # Maintainer: fenuks
 
 _pkgname=cantata
-pkgname=${_pkgname}-git
+pkgname=${_pkgname}-fenuks-git
 pkgver=2.4.2.r7557.8eb3a9651
 pkgrel=1
-pkgdesc="Qt5 Graphical MPD Client "
+pkgdesc="Qt6 Graphical MPD Client "
 arch=('x86_64' 'aarch64')
 url="https://github.com/fenuks/cantata"
 license=('GPL3')
