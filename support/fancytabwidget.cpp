@@ -310,7 +310,7 @@ void FancyTabBar::paintEvent(QPaintEvent *event)
     }
 }
 
-void FancyTab::enterEvent(QEvent*)
+void FancyTab::enterEvent(QEnterEvent*)
 {
     underMouse = true;
 }

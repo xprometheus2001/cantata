@@ -77,7 +77,7 @@ public:
     bool underMouse;
 
 protected:
-    void enterEvent(QEvent *);
+    void enterEvent(QEnterEvent *);
     void leaveEvent(QEvent *) override;
 
 private:
