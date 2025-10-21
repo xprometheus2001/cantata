@@ -90,7 +90,7 @@ private:
     int paranoiaMode;
     bool neverSkip;
     int maxRetries;
-    int seekOffst;
+    int seekOffset;
 };
 
 #endif

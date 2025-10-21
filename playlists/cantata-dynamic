@@ -943,7 +943,7 @@ sub populatePlayQueue() {
                 &getSongs();
                 if ($numMpdSongs>0) {
                     # fill up playlist to 10 random tunes
-                    my $failues=0;
+                    my $failures=0;
                     my $added=0;
                     while ($playQueueLength < $playQueueDesiredLength && $numMpdSongs>0) {
                         my $pos=int(rand($numMpdSongs));
@@ -953,15 +953,15 @@ sub populatePlayQueue() {
                         $file =~ s/\"/\\\"/g;
 
                         if (&checkSongDurationInRange($file, $pos) && &checkSongRatingInRange($file, $pos)) {
-                            if ($failues > 100 || &canAdd($origFile, $numMpdSongs)) {
+                            if ($failures > 100 || &canAdd($origFile, $numMpdSongs)) {
                                 if (&sendCommand("add \"${file}\"") ne '') {
                                     &storeSong($origFile);
                                     $playQueueLength++;
-                                    $failues=0;
+                                    $failures=0;
                                     $added++;
                                 }
                             } else { # Song is already in playqueue history...
-                                $failues++;
+                                $failures++;
                             }
                         }
                     }

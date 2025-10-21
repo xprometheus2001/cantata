@@ -137,7 +137,7 @@ SongView::SongView(QWidget *p)
     connect(text, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showContextMenu(QPoint)));
     texts.at(Page_Information)->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(texts.at(Page_Information), SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showInfoContextMenu(QPoint)));
-    connect(this, SIGNAL(viewChanged()), this, SLOT(curentViewChanged()));
+    connect(this, SIGNAL(viewChanged()), this, SLOT(currentViewChanged()));
     setMode(Mode_Blank);
     setStandardHeader(tr("Track"));
     clear();
@@ -341,7 +341,7 @@ void SongView::scroll()
     }
 }
 
-void SongView::curentViewChanged()
+void SongView::currentViewChanged()
 {
     if (!isVisible()) {
         return;
@@ -795,7 +795,7 @@ void SongView::update(const Song &s, bool force)
         setHeader(song.title);
     }
     if (metadataNeedsUpdating || infoNeedsUpdating || lyricsNeedsUpdating) {
-        curentViewChanged();
+        currentViewChanged();
     }
 }
 

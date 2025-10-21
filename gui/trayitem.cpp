@@ -141,7 +141,7 @@ void TrayItem::setup()
     updateOutputs();
     #endif
 
-    // What systems DONT have a system tray? Also, isSytemTrayAvailable is checked in config dialog, so
+    // What systems DONT have a system tray? Also, isSystemTrayAvailable is checked in config dialog, so
     // useSystemTray should not be set if there is none.
     // Checking here seems to cause the icon not to appear if Cantata is autostarted in Plasma5 - #759
     //if (!QSystemTrayIcon::isSystemTrayAvailable()) {

@@ -198,7 +198,7 @@ public:
         int viewWidth = view->viewport()->width();
 
         // KVantum returns a -ve number for spacing if using overlay scrollbars. I /think/ this
-        // is what messes the layout code. The subtracion below seems to work-around this - but
+        // is what messes the layout code. The subtraction below seems to work-around this - but
         // give a larger right-hand margin!
         int sbarSpacing = view->style()->pixelMetric(QStyle::PM_ScrollView_ScrollBarSpacing);
         if (sbarSpacing<0) {

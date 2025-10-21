@@ -247,8 +247,8 @@ void DeviceBackend::slotInterfacesRemoved(const QDBusObjectPath& object_path, co
     }
 }
 
-// UDisks2 sends us null terminated strings, make sure to strip the extranous \0 in favor of the implicit \0.
-// Otherwise comparision becomes unnecessarily complicated because 'foo\0' != 'foo'. QByteArrays are implicitly
+// UDisks2 sends us null terminated strings, make sure to strip the extraneous \0 in favor of the implicit \0.
+// Otherwise comparison becomes unnecessarily complicated because 'foo\0' != 'foo'. QByteArrays are implicitly
 // terminated already.
 void DeviceBackend::cacheProperty(const QString &key, const QVariant &value) const
 {

@@ -67,7 +67,7 @@ public:
         QVariant getProperty(BSTR property) const;
         // QSharedPointer alone doesn't help because we need to call Release()
         IWbemClassObject* m_p;
-        QVariantMap m_properies;
+        QVariantMap m_properties;
     };
 
     typedef QList<Item> ItemList;

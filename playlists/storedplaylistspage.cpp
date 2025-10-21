@@ -84,18 +84,18 @@ StoredPlaylistsPage::StoredPlaylistsPage(QWidget *p)
     connect(removeInvalidAction, SIGNAL(triggered()), this, SLOT(removeInvalid()));
     connect(PlaylistsModel::self(), SIGNAL(updated(const QModelIndex &)), this, SLOT(updated(const QModelIndex &)));
     connect(PlaylistsModel::self(), SIGNAL(playlistRemoved(quint32)), view, SLOT(collectionRemoved(quint32)));
-    intitiallyCollapseAction=new Action(tr("Initially Collapse Albums"), this);
-    intitiallyCollapseAction->setCheckable(true);
+    initiallyCollapseAction=new Action(tr("Initially Collapse Albums"), this);
+    initiallyCollapseAction->setCheckable(true);
     Configuration config(metaObject()->className());
     view->setMode(ItemView::Mode_DetailedTree);
     view->load(config);
-    intitiallyCollapseAction->setChecked(view->isStartClosed());
-    connect(intitiallyCollapseAction, SIGNAL(toggled(bool)), SLOT(setStartClosed(bool)));
+    initiallyCollapseAction->setChecked(view->isStartClosed());
+    connect(initiallyCollapseAction, SIGNAL(toggled(bool)), SLOT(setStartClosed(bool)));
     MenuButton *menu=new MenuButton(this);
     menu->addAction(createViewMenu(QList<ItemView::Mode>() << ItemView::Mode_BasicTree << ItemView::Mode_SimpleTree
                                                            << ItemView::Mode_DetailedTree << ItemView::Mode_List
                                                            << ItemView::Mode_GroupedTree << ItemView::Mode_Table));
-    menu->addAction(intitiallyCollapseAction);
+    menu->addAction(initiallyCollapseAction);
     init(ReplacePlayQueue|AppendToPlayQueue, QList<QWidget *>() << menu);
 
     view->addAction(StdActions::self()->addToStoredPlaylistAction);
@@ -151,7 +151,7 @@ void StoredPlaylistsPage::setView(int mode)
 {
     PlaylistsModel::self()->setMultiColumn(ItemView::Mode_Table==mode);
     SinglePageWidget::setView(mode);
-    intitiallyCollapseAction->setEnabled(ItemView::Mode_GroupedTree==mode);
+    initiallyCollapseAction->setEnabled(ItemView::Mode_GroupedTree==mode);
 }
 
 void StoredPlaylistsPage::removeItems()

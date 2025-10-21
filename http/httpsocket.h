@@ -66,7 +66,7 @@ private:
     void setUrlAddress();
 
 private:
-    QSet<QString> newlyAddedFiles; // Holds cantata strema filenames as added to MPD via "add"
+    QSet<QString> newlyAddedFiles; // Holds cantata stream filenames as added to MPD via "add"
     QMap<qint32, QString> streamIds; // Maps MPD playqueue song ID to fileName
     QString cfgInterface;
     QString mpdAddr;

@@ -335,7 +335,7 @@ void PodcastPage::jobFinished()
     if (spinner) {
         spinner->stop();
     }
-    parseResonse(j->ok() ? j->actualJob() : nullptr);
+    parseResponse(j->ok() ? j->actualJob() : nullptr);
     job=nullptr;
 }
 
@@ -398,7 +398,7 @@ void PodcastSearchPage::doSearch()
     fetch(url);
 }
 
-void PodcastSearchPage::parseResonse(QIODevice *dev)
+void PodcastSearchPage::parseResponse(QIODevice *dev)
 {
     if (!dev) {
         emit error(tr("Failed to fetch podcasts from %1").arg(name()));
@@ -435,7 +435,7 @@ void OpmlBrowsePage::showEvent(QShowEvent *e)
         if (!cacheFile.isEmpty() && QFile::exists(cacheFile)) {
             QFile f(cacheFile);
             if (f.open(QIODevice::ReadOnly)) {
-                parseResonse(&f);
+                parseResponse(&f);
                 if (tree->topLevelItemCount()>0) {
                     Utils::touchFile(cacheFile);
                     loaded=true;
@@ -458,7 +458,7 @@ void OpmlBrowsePage::reload()
     fetch(url);
 }
 
-void OpmlBrowsePage::parseResonse(QIODevice *dev)
+void OpmlBrowsePage::parseResponse(QIODevice *dev)
 {
     bool isLoadingFromCache=dynamic_cast<QFile *>(dev) ? true : false;
 
@@ -567,7 +567,7 @@ void PodcastUrlPage::openPath()
         }
     }
 }
-void PodcastUrlPage::parseResonse(QIODevice *dev)
+void PodcastUrlPage::parseResponse(QIODevice *dev)
 {
     if (!dev) {
         emit error(tr("Failed to fetch podcast!"));

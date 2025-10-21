@@ -78,7 +78,7 @@ private Q_SLOTS:
 
 private:
     void updateText();
-    virtual void parseResonse(QIODevice *dev) = 0;
+    virtual void parseResponse(QIODevice *dev) = 0;
 
 protected:
     QString pageName;
@@ -101,7 +101,7 @@ public:
     void showEvent(QShowEvent *e) override;
 
 private:
-    void parseResonse(QIODevice *dev) override;
+    void parseResponse(QIODevice *dev) override;
 
 private Q_SLOTS:
     virtual void doSearch();
@@ -129,7 +129,7 @@ private Q_SLOTS:
     void reload();
 
 private:
-    void parseResonse(QIODevice *dev) override;
+    void parseResponse(QIODevice *dev) override;
 
 private:
     bool loaded;
@@ -146,7 +146,7 @@ public:
     void showEvent(QShowEvent *e) override;
 
 private:
-    void parseResonse(QIODevice *dev) override;
+    void parseResponse(QIODevice *dev) override;
     void parse(QIODevice *dev);
 
 private Q_SLOTS:

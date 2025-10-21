@@ -98,7 +98,7 @@ namespace Ifaces
         /**
          * Retrieves the crypto container UDI of this volume.
          *
-         * @return the encrypted volume UDI containing the current volume if appliable,
+         * @return the encrypted volume UDI containing the current volume if applicable,
          * an empty string otherwise
          */
         virtual QString encryptedContainerUdi() const = 0;

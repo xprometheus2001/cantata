@@ -157,7 +157,7 @@ QVariant WmiQuery::Item::getProperty(const QString &property) const
 
 QVariantMap WmiQuery::Item::getAllProperties()
 {
-    if(m_properies.isEmpty()){
+    if(m_properties.isEmpty()){
         SAFEARRAY *psaNames;
         HRESULT hr = m_p->GetNames(NULL,  WBEM_FLAG_ALWAYS | WBEM_FLAG_NONSYSTEM_ONLY,NULL,&psaNames);
         if (SUCCEEDED(hr)) {
@@ -170,7 +170,7 @@ QVariantMap WmiQuery::Item::getAllProperties()
                 QVariant vr = getProperty(pName);
                 if(vr.isValid()){
                     QString key = bstrToQString(pName);
-                    m_properies[key] = getProperty(pName);
+                    m_properties[key] = getProperty(pName);
                 }
             }
         }else{
@@ -178,7 +178,7 @@ QVariantMap WmiQuery::Item::getAllProperties()
         }
         SafeArrayDestroy( psaNames);
     }
-    return m_properies;
+    return m_properties;
 }
 
 WmiQuery::Item::Item()

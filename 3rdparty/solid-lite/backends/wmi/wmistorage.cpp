@@ -69,7 +69,7 @@ Solid::StorageDrive::Bus Storage::bus() const
     {
         return Solid::StorageDrive::Scsi;
     }
-//    else if (bus=="sata")//not availible http://msdn.microsoft.com/en-us/library/windows/desktop/aa394132(v=vs.85).aspx
+//    else if (bus=="sata")//not available http://msdn.microsoft.com/en-us/library/windows/desktop/aa394132(v=vs.85).aspx
 //    {
 //        return Solid::StorageDrive::Sata;
 //    }

@@ -109,7 +109,7 @@ public:
         int trackCount;
         int duration;
         int lastModified;
-        bool identifyById; // Should we jsut use albumId to locate tracks - Issue #1025
+        bool identifyById; // Should we just use albumId to locate tracks - Issue #1025
     };
 
     LibraryDb(QObject *p, const QString &name);

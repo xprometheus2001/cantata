@@ -79,7 +79,7 @@ private Q_SLOTS:
     void toggleScroll();
     void songPosition();
     void scroll();
-    void curentViewChanged();
+    void currentViewChanged();
     void refreshInfo();
     void infoSearchResponse(const QString &resp, const QString &lang);
     void abortInfoSearch();

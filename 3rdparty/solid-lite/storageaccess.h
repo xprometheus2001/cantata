@@ -119,7 +119,7 @@ namespace Solid
 
     Q_SIGNALS:
         /**
-         * This signal is emitted when the accessiblity of this device
+         * This signal is emitted when the accessibility of this device
          * has changed.
          *
          * @param accessible true if the volume is accessible, false otherwise

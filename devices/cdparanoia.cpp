@@ -36,7 +36,7 @@ CdParanoia::CdParanoia(const QString &device, bool full, bool noSkip, bool playb
     , paranoiaMode(0)
     , neverSkip(noSkip)
     , maxRetries(20)
-    , seekOffst(offset)
+    , seekOffset(offset)
 {
     QMutexLocker locker(&mutex);
     if (!lockedDevices.contains(device)) {
@@ -104,9 +104,9 @@ qint16 * CdParanoia::read()
 int CdParanoia::seek(long sector, int mode)
 {
     #ifdef CDIOPARANOIA_FOUND
-    return paranoia ? cdio_paranoia_seek(paranoia, sector+seekOffst, mode) : -1;
+    return paranoia ? cdio_paranoia_seek(paranoia, sector+seekOffset, mode) : -1;
     #else
-    return paranoia ? paranoia_seek(paranoia, sector+seekOffst, mode) : -1;
+    return paranoia ? paranoia_seek(paranoia, sector+seekOffset, mode) : -1;
     #endif
 }
 

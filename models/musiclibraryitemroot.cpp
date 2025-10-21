@@ -766,11 +766,11 @@ MusicLibraryItemArtist * MusicLibraryItemRoot::getArtist(const QString &key) con
     QList<MusicLibraryItem *>::ConstIterator it=m_childItems.constBegin();
     QList<MusicLibraryItem *>::ConstIterator end=m_childItems.constEnd();
     for (int i=0; it!=end; ++it, ++i) {
-        MusicLibraryItemArtist *currenArtist=static_cast<MusicLibraryItemArtist *>(*it);
-        if (!ar && currenArtist->data()==key) {
-            ar=currenArtist;
+        MusicLibraryItemArtist *currentArtist=static_cast<MusicLibraryItemArtist *>(*it);
+        if (!ar && currentArtist->data()==key) {
+            ar=currentArtist;
         }
-        m_indexes.insert(currenArtist->data(), i);
+        m_indexes.insert(currentArtist->data(), i);
     }
     return ar;
 }

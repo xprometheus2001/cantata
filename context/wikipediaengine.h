@@ -39,12 +39,12 @@ public:
     static const QLatin1String constReadMorePlaceholder;
     static const QLatin1String constOpenInBrowserPlaceholder;
 
-    static void setPreferedLangs(const QStringList &l);
-    static const QStringList & getPreferedLangs() { return preferredLangs; }
+    static void setPreferredLangs(const QStringList &l);
+    static const QStringList & getPreferredLangs() { return preferredLangs; }
     static void setIntroOnly(bool v) { introOnly=v; }
 
     QString translateLinks(QString text) const override;
-    QStringList getLangs() const override { return getPreferedLangs(); }
+    QStringList getLangs() const override { return getPreferredLangs(); }
     QString getPrefix(const QString &key) const override { return key.split(QLatin1Char(':')).back(); }
 
 public Q_SLOTS:

@@ -232,7 +232,7 @@ void SearchPage::setSearchCategory(const QString &cat)
 void SearchPage::setSearchCategories()
 {
     int newState=(MPDConnection::self()->composerTagSupported() ? State_ComposerSupported : 0)|
-                 (MPDConnection::self()->commentTagSupported() ? State_CommmentSupported : 0)|
+                 (MPDConnection::self()->commentTagSupported() ? State_CommentSupported : 0)|
                  (MPDConnection::self()->performerTagSupported() ? State_PerformerSupported : 0)|
                  (MPDConnection::self()->modifiedFindSupported() ? State_ModifiedSupported : 0)|
                  (MPDConnection::self()->originalDateTagSupported() ? State_OrigDateSupported : 0);
@@ -256,7 +256,7 @@ void SearchPage::setSearchCategories()
     categories << SearchWidget::Category(tr("Album:"), QLatin1String("album"), tr("Search for songs by album."))
                << SearchWidget::Category(tr("Title:"), QLatin1String("title"), tr("Search for songs by title."))
                << SearchWidget::Category(tr("Genre:"), QLatin1String("genre"), tr("Search for songs by genre."));
-    if (state&State_CommmentSupported) {
+    if (state&State_CommentSupported) {
         categories << SearchWidget::Category(tr("Comment:"), QLatin1String("comment"), tr("Search for songs containing comment."));
     }
     categories << SearchWidget::Category(tr("Date:"), QLatin1String("date"),

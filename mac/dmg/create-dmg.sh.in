@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# This script has been copied, and modified from the orignal create-dmg.sh
+# This script has been copied, and modified from the original create-dmg.sh
 # in Clemtine 1.2.3 - which in turn was taken from Tomahawk.
 #
 # author: max@last.fm, muesli@tomahawk-player.org

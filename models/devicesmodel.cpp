@@ -673,7 +673,7 @@ void DevicesModel::accessibilityChanged(bool accessible, const QString &udi)
 {
     Q_UNUSED(accessible)
     int idx=indexOf(udi);
-    DBUG << "Solid device accesibility changed udi = " << udi << idx << accessible;
+    DBUG << "Solid device accessibility changed udi = " << udi << idx << accessible;
     if (idx>=0) {
         Device *dev=static_cast<Device *>(collections.at(idx));
         if (dev) {

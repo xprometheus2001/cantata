@@ -138,7 +138,7 @@ Q_SIGNALS:
     void saveCache(const QString &cacheFile, MusicLibraryItemRoot *lib);
 
 protected:
-    void initScaner();
+    void initScanner();
     void startScanner(bool fullScan=true);
     void stopScanner();
     void clear() const;

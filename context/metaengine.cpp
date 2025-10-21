@@ -75,7 +75,7 @@ void MetaEngine::wikiResponse(const QString &html, const QString &lang)
 {
     DBUG <<  html.isEmpty() << lang.isEmpty();
     if (!html.isEmpty()) {
-        // Got a wikipedia reponse, use it!
+        // Got a wikipedia response, use it!
         DBUG <<  "Got wiki response!";
         lastfm->cancel();
         emit searchResult(html, lang);

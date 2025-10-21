@@ -93,10 +93,10 @@ protected:
     //! drag delay (msec)
     void setDragDelay(int value)  { _dragDelay = value; }
 
-    //! returns true if widget is dragable
-    bool isDragable(QWidget *);
+    //! returns true if widget is draggable
+    bool isDraggable(QWidget *);
 
-    //! returns true if widget is dragable
+    //! returns true if widget is draggable
     bool isBlackListed(QWidget *);
 
     //! returns true if drag can be started from current widget

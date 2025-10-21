@@ -1009,7 +1009,7 @@ void MPDConnection::move(const QList<quint32> &items, quint32 pos, quint32 size)
     //first move all items (starting with the biggest) to the end so we don't have to deal with changing rownums
     for (int i = moveItems.size() - 1; i >= 0; i--) {
         if (moveItems.at(i) < pos && moveItems.at(i) != size - 1) {
-            // we are moving away an item that resides before the destinatino row, manipulate destination row
+            // we are moving away an item that resides before the destination row, manipulate destination row
             posOffset++;
         }
         send += "move ";
@@ -1090,7 +1090,7 @@ void MPDConnection::currentSong()
 }
 
 /*
- * Call "plchangesposid" to recieve a list of positions+ids that have been changed since the last update.
+ * Call "plchangesposid" to receive a list of positions+ids that have been changed since the last update.
  * If we have ids in this list that we don't know about, then these are new songs - so we call
  * "playlistinfo <pos>" to get the song information.
  *
@@ -1485,7 +1485,7 @@ void MPDConnection::getStats()
         MPDStatsValues stats=MPDParseUtils::parseStats(response.data);
         dbUpdate=stats.dbUpdate;
         if (isMopidy()) {
-            // Set version to 1 so that SQL cache is updated - it uses 0 as intial value
+            // Set version to 1 so that SQL cache is updated - it uses 0 as initial value
             dbUpdate=stats.dbUpdate=1;
         }
         emit statsUpdated(stats);
@@ -1653,7 +1653,7 @@ void MPDConnection::onSocketStateChanged(QAbstractSocket::SocketState socketStat
 }
 
 /*
- * Parse data returned by the mpd deamon on an idle commond.
+ * Parse data returned by the mpd daemon on an idle commond.
  */
 void MPDConnection::parseIdleReturn(const QByteArray &data)
 {
@@ -1778,7 +1778,7 @@ void MPDConnection::outputs()
 {
     Response response=sendCommand("outputs");
     if (response.ok) {
-        QList<Output> outputs = MPDParseUtils::parseOuputs(response.data);
+        QList<Output> outputs = MPDParseUtils::parseOutputs(response.data);
 
         // We need to temporarily switch to the default partition in order
         // to collect the details of all available outputs.
@@ -1790,7 +1790,7 @@ void MPDConnection::outputs()
                 for (const Output &o: outputs) {
                     existingNames << o.name;
                 }
-                QList<Output> defaultOutputs = MPDParseUtils::parseOuputs(defaultResponse.data);
+                QList<Output> defaultOutputs = MPDParseUtils::parseOutputs(defaultResponse.data);
                 for (Output &o: defaultOutputs) {
                     if (!existingNames.contains(o.name)) {
                         o.inCurrentPartition = false;
@@ -2307,7 +2307,7 @@ bool MPDConnection::recursivelyListDir(const QString &dir, QList<Song> &songs)
         // UPnP database backend does not list separate metadata items, so if "list genre" returns
         // empty response assume this is a UPnP backend and dont attempt to get rest of data...
         // Although we dont use "list XXX", lsinfo will return duplciate items (due to the way most
-        // UPnP servers returing directories of classifications - Genre/Album/Tracks, Artist/Album/Tracks,
+        // UPnP servers returning directories of classifications - Genre/Album/Tracks, Artist/Album/Tracks,
         // etc...
         Response response=sendCommand("list genre", false, false);
         if (!response.ok || response.data.split('\n').length()<3) { // 2 lines - OK and blank
@@ -2566,7 +2566,7 @@ void MPDConnection::getRating(const QString &file)
             if (!val.isEmpty()) {
                 r=val.toUInt();
             }
-        } else { // Ignore errors about uknown sticker...
+        } else { // Ignore errors about unknown sticker...
             clearError();
         }
         if (r>Song::Rating_Max) {
@@ -2690,7 +2690,7 @@ void MpdSocket::connectToHost(const QString &hostName, quint16 port, QIODevice::
             connect(local, SIGNAL(readyRead()), this, SIGNAL(readyRead()));
         }
         DBUG << "Connecting to LOCAL socket";
-        QString host = Utils::tildaToHome(hostName);
+        QString host = Utils::tildeToHome(hostName);
         /*if ('@'==host[0]) {
             host[0]='\0';
         }*/
@@ -2767,10 +2767,10 @@ void MPDServerInfo::detect() {
         MPDConnection::Response response=conn->sendCommand(lsinfoCommand, false, false);
         QList<QByteArray> lines = response.data.split('\n');
         bool match = false;
-        unsigned int indx;
+        unsigned int index;
         for (const QByteArray &line: lines) {
-            for (indx=0; indx<sizeof(lsinfoResponseParameters)/sizeof(ResponseParameter); ++indx) {
-                ResponseParameter &rp = lsinfoResponseParameters[indx];
+            for (index=0; index<sizeof(lsinfoResponseParameters)/sizeof(ResponseParameter); ++index) {
+                ResponseParameter &rp = lsinfoResponseParameters[index];
                 if (rp.isSubstring) {
                     match = line.toLower().contains(rp.response.toLower());
                 } else {

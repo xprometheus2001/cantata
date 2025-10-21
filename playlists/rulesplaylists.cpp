@@ -307,7 +307,7 @@ void RulesPlaylists::loadLocal()
     entryList.clear();
     currentEntry=QString();
 
-    // Load all current enttries...
+    // Load all current entries...
     QString dirName=Utils::dataDir(rulesDir);
     QDir d(dirName);
     if (d.exists()) {

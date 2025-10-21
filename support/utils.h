@@ -61,11 +61,11 @@ namespace Utils
 
     extern QString fixPath(const QString &d, bool ensureEndsInSlash=true);
     #ifdef Q_OS_WIN
-    inline QString homeToTilda(const QString &s) { return s; }
-    inline QString tildaToHome(const QString &s) { return s; }
+    inline QString homeToTilde(const QString &s) { return s; }
+    inline QString tildeToHome(const QString &s) { return s; }
     #else
-    extern QString homeToTilda(const QString &s);
-    extern QString tildaToHome(const QString &s);
+    extern QString homeToTilde(const QString &s);
+    extern QString tildeToHome(const QString &s);
     #endif
 
     extern QString getDir(const QString &file, bool addSlash=true);

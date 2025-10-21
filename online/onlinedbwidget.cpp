@@ -114,7 +114,7 @@ void OnlineDbWidget::firstTimePrompt()
 {
     if (MessageBox::No==MessageBox::questionYesNo(this, srv->averageSize()
                                                         ? tr("The music listing needs to be downloaded, this can consume over %1Mb of disk space").arg(srv->averageSize())
-                                                        : tr("Dowload music listing?"),
+                                                        : tr("Download music listing?"),
                                                    QString(), GuiItem(tr("Download")), StdGuiItem::cancel())) {
         emit close();
     } else {

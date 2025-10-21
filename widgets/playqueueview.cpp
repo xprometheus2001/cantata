@@ -139,8 +139,8 @@ void PlayQueueView::readConfig()
         if (origType!=backgroundImageType) {
             updatePalette();
             previousBackground=QPixmap();
-            curentCover=QImage();
-            curentBackground=QPixmap();
+            currentCover=QImage();
+            currentBackground=QPixmap();
             view()->viewport()->update();
             setImage(QImage());
         }
@@ -430,27 +430,27 @@ void PlayQueueView::setImage(const QImage &img)
     if (BI_None==backgroundImageType || (sender() && BI_Custom==backgroundImageType)) {
         return;
     }
-    previousBackground=curentBackground;
+    previousBackground=currentBackground;
     if (img.isNull() || QImage::Format_ARGB32==img.format()) {
-        curentCover = img;
+        currentCover = img;
     } else {
-        curentCover = img.convertToFormat(QImage::Format_ARGB32);
+        currentCover = img.convertToFormat(QImage::Format_ARGB32);
     }
-    if (!curentCover.isNull()) {
+    if (!currentCover.isNull()) {
         if (backgroundOpacity<100) {
-            curentCover=TreeView::setOpacity(curentCover, (backgroundOpacity*1.0)/100.0);
+            currentCover=TreeView::setOpacity(currentCover, (backgroundOpacity*1.0)/100.0);
         }
         if (backgroundBlur>0) {
-            QImage blurred(curentCover.size(), QImage::Format_ARGB32_Premultiplied);
+            QImage blurred(currentCover.size(), QImage::Format_ARGB32_Premultiplied);
             blurred.fill(Qt::transparent);
             QPainter painter(&blurred);
-            qt_blurImage(&painter, curentCover, backgroundBlur, true, false);
+            qt_blurImage(&painter, currentCover, backgroundBlur, true, false);
             painter.end();
-            curentCover = blurred;
+            currentCover = blurred;
         }
     }
 
-    curentBackground=QPixmap();
+    currentBackground=QPixmap();
     animator.stop();
     if (BI_Custom==backgroundImageType || !isVisible()) {
         setFade(1.0);
@@ -488,9 +488,9 @@ void PlayQueueView::drawBackdrop(QWidget *widget, const QSize &size)
     QPainter p(widget);
 
     p.fillRect(0, 0, size.width(), size.height(), QApplication::palette().color(topLevelWidget()->isActiveWindow() ? QPalette::Active : QPalette::Inactive, QPalette::Base));
-    if (!curentCover.isNull() || !previousBackground.isNull()) {
-        if (!curentCover.isNull() && (size!=lastBgndSize || curentBackground.isNull())) {
-            curentBackground = QPixmap::fromImage(curentCover.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
+    if (!currentCover.isNull() || !previousBackground.isNull()) {
+        if (!currentCover.isNull() && (size!=lastBgndSize || currentBackground.isNull())) {
+            currentBackground = QPixmap::fromImage(currentCover.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
             lastBgndSize=size;
         }
 
@@ -500,9 +500,9 @@ void PlayQueueView::drawBackdrop(QWidget *widget, const QSize &size)
             }
             p.drawPixmap((size.width()-previousBackground.width())/2, (size.height()-previousBackground.height())/2, previousBackground);
         }
-        if (!curentBackground.isNull()) {
+        if (!currentBackground.isNull()) {
             p.setOpacity(fadeValue);
-            p.drawPixmap((size.width()-curentBackground.width())/2, (size.height()-curentBackground.height())/2, curentBackground);
+            p.drawPixmap((size.width()-currentBackground.width())/2, (size.height()-currentBackground.height())/2, currentBackground);
         }
     }
 }

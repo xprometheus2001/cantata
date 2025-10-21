@@ -12,7 +12,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "kOpenBSD.*|OpenBSD.*")
 endif ()
 
 if (WIN32)
-    # For some reason I chose mpd as the organization name for Windows builds. So, for config compatability, this is
+    # For some reason I chose mpd as the organization name for Windows builds. So, for config compatibility, this is
     # left as mpd for now...
     set(ORGANIZATION_NAME "mpd")
 else ()
@@ -55,9 +55,9 @@ option(ENABLE_CATEGORIZED_VIEW "Enable support for categorised view" OFF)
 option(ENABLE_SCROBBLING "Enable scrobbling" ON)
 
 if (WIN32 OR APPLE OR HAIKU)
-    option(ENABLE_DEVICES_SUPPORT "Enable suport for external devices" OFF)
+    option(ENABLE_DEVICES_SUPPORT "Enable support for external devices" OFF)
 else ()
-    option(ENABLE_DEVICES_SUPPORT "Enable suport for external devices" ON)
+    option(ENABLE_DEVICES_SUPPORT "Enable support for external devices" ON)
     option(ENABLE_REMOTE_DEVICES "Enable support for remote (sshfs, samba) devices" ON)
     option(ENABLE_SIMPLE_MPD_SUPPORT "Enable support for simple (Cantata controlled) MPD" ON)
     if (${CMAKE_SYSTEM_NAME} STREQUAL "Linux")

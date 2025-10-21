@@ -90,10 +90,10 @@ namespace MPDParseUtils
     extern MessageMap parseMessages(const QByteArray &data);
     extern void parseDirItems(const QByteArray &data, const QString &mpdDir, long mpdVersion, QList<Song> &songList, const QString &dir, QStringList &subDirs, Location loc);
     extern QList<Partition> parsePartitions(const QByteArray &data);
-    extern QList<Output> parseOuputs(const QByteArray &data);
+    extern QList<Output> parseOutputs(const QByteArray &data);
     extern QByteArray parseSticker(const QByteArray &data, const QByteArray &sticker);
     extern QList<Sticker> parseStickers(const QByteArray &data, const QByteArray &sticker);
-    // Single hash when saving streams to [Radio Streams] - for compatability
+    // Single hash when saving streams to [Radio Streams] - for compatibility
     extern QString addStreamName(const QString &url, const QString &name, bool singleHash=false);
     extern QString getStreamName(const QString &url);
     // checkSingleHash - check for #<Name> as well as #StreamName:<Name>

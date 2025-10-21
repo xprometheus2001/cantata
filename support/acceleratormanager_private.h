@@ -44,7 +44,7 @@ class AccelString
 public:
 
   AccelString() : m_pureText(), m_accel(-1), m_orig_accel(-1) {}
-  explicit AccelString(const QString &input, int initalWeight=-1);
+  explicit AccelString(const QString &input, int initialWeight=-1);
 
   void calculateWeights(int initialWeight);
 

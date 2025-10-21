@@ -91,7 +91,7 @@
    Qt bug.
 2. Look in /usr/lib64/qt5/bin for lrelease
 3. Fix deprecation warnings.
-4. Enable catagorized view by default, might also be a Qt issue?
+4. Enable categorized view by default, might also be a Qt issue?
 5. Remove Encyclopaedia Metallum from lyrics providers, as does not work.
 
 2.4.0
@@ -132,9 +132,9 @@
 29. Add 'originaldate,albumartistsort,artistsort,albumsort" to Cantata local
     mpd config.
 30. Add Finnish translation - thanks to Tommi Nieminen.
-31. Alter behavour of 'previous' button; if played 5 seconds or more, then go
+31. Alter behaviour of 'previous' button; if played 5 seconds or more, then go
     to start of track, else go to previous track.
-32. Added Dutch translaiton - thnaks to Heimen Stoffels.
+32. Added Dutch translaiton - thanks to Heimen Stoffels.
 33. In dynamic/smart playlists, when specify a rating also allow to specify
     unrated tracks.
 34. When matching wildcard genres, look case-insensitively for smart playlists.
@@ -179,8 +179,8 @@
 12. Fix QMediaPlayer stuck with network streams - thanks to theirix
 13. Always show volume control.
 14. Fix 'Show Current Song Information' (i) toolbar button showing when
-    interface is collpased and resized.
-15. When expand intrface, don't shrink width. Conversely, when collapsing
+    interface is collapsed and resized.
+15. When expand interface, don't shrink width. Conversely, when collapsing
     don't expand width.
 16. In grouped style playqueue, only show album duration if there is more than
     one track from the album.
@@ -239,7 +239,7 @@
 11. Don't enable AA_EnableHighDpiScaling for windows builds, seems to
     interfere with fractional scaling.
 12. When playing, only poll MPD every 5 seconds.
-13. When updating play seekbar from MPDStatus, only upate if more than 1
+13. When updating play seekbar from MPDStatus, only update if more than 1
     second from calculated position.
 14. Slightly reduce height of toolbar.
 15. Add a slight border to context view.
@@ -460,7 +460,7 @@
 38. Read lyrics from MP4 files.
 39. Only scroll playqueue if current song changed.
 40. Support disc number in CUE files.
-41. Remove Gtk themeing hacks. Qt styles such as Kvantum should be used to
+41. Remove Gtk theming hacks. Qt styles such as Kvantum should be used to
     mimic better Gtk support.
 42. Japanese translation.
 43. Allow single-key shortcuts.
@@ -469,7 +469,7 @@
 46. URL encode online stream URLs before passing to MPD.
 47. Show podcast descriptions in tooltips.
 48. Parse name field in playlists.
-49. Use 32-bit int for bitrate and samplerate staus values.
+49. Use 32-bit int for bitrate and samplerate status values.
 50. Remove Qt4, KDE4, and Ubuntu touch support.
 51. When playing MPD's HTTP output stream, check periodically (for up to 2
     seconds) to confirm backend is playing.
@@ -547,9 +547,9 @@
 12. If MPD does not support 'sticker' command, then inform user that ratings
     cannot be stored.
 13. When populating library, check genre list. If this is empty, then do dot
-    attempt to populate library. The UPnP database backend will not populate
+    attempt to populate library. The UOnP database backend will not populate
     MPD's metadata listings (genre, artists, etc), and calling "lsinfo" on
-    all UPnP folders is very slow and will lead to duplicate tracks.
+    all UOnP folders is very slow and will lead to duplicate tracks.
 14. Add 'Copy To Device' to playqueue.
 15. Do not reset current song when shuffling albums, or sorting playqueue.
 16. MPD 0.19.2 can handle m3u8, so pass stream URLs of this type straight to
@@ -569,7 +569,7 @@
     album-artist, to group albums.
 26. Fix updating of composer tag.
 27. Fix build with proxy config and Qt5
-28. For Linux builds, if system tray icon is null (becasue QIcon cannot find
+28. For Linux builds, if system tray icon is null (because QIcon cannot find
     it) then add icon files manually.
 29. Allow local socket path to start with ~
 30. Ensure consistent order when drag'n'drop from list views as per tree views.
@@ -677,7 +677,7 @@
 1. Show correct separators for windows builds.
 2. Supply TagLib 1.9.1 for windows builds.
 3. Convert filename to UTF16 before passing to TagLib for windows builds.
-4. When emiting signal to say cover is loaded, need to adjust size by pixel
+4. When emitting signal to say cover is loaded, need to adjust size by pixel
    ratio.
 5. Fix updating of toolbar coverwidget if cover is downloaded after song has
    started.
@@ -742,7 +742,7 @@
     especially with retina displays.
 34. Read ArtistSort, AlbumArtistSort, and AlbumSort from MPD. If found, use
     these to sort items.
-35. Add 'Full Refresh' action - cuases caches to be removed, and models to be
+35. Add 'Full Refresh' action - causes caches to be removed, and models to be
     completely refreshed.
 36. Add actions to mark podcast as episode as listened or new.
 37. Add action to cancel podcast downloads.
@@ -972,7 +972,7 @@
  65. Add option to only act on songs that pass current string or genre filter.
  66. Multiple genre support.
  67. Store favourite streams as '[Radio Streams]' MPD playlist.
- 68. For tracks for mutliple-artist albums, show as 'title - artist' and not
+ 68. For tracks for multiple-artist albums, show as 'title - artist' and not
      'artist - title'
  69. In playqueue, if song's artist is different to album artist, then show song
      as 'title - artist'
@@ -1012,7 +1012,7 @@
  91. Use external editor to edit lyrics.
  92. Allow searching on performer tag.
  93. Remove ID3v1 when saving ID3 tags.
- 94. 25% larger items in playqueue. Incrases covers from 32px to 40px
+ 94. 25% larger items in playqueue. Increases covers from 32px to 40px
  95. Fix replay-gain scanner if file name, or path, contains non-latin1
      characters.
  96. Install Ubuntu mono sys-tray icons to
@@ -1022,7 +1022,7 @@
      cmake.
  97. Hide system-tray option in Qt builds if system tray is not available.
  98. In non Dbus Qt builds, if notifications is checked ensure that sys tray is
-     also checkedd. Conversly if sys tray is unchecked, uncheck notifications.
+     also checkedd. Conversely if sys tray is unchecked, uncheck notifications.
  99. Add option to use libVLC for MPD HTTP stream playback - see INSTAL file
      for details.
 100. Also show first IP address of interface in HTTP server settings page.
@@ -1202,7 +1202,7 @@
     for relevant tracks.
 32. Fix displaying of disc and track numbers for online services.
 33. Move sidebar settings into settings dialog. Sidebar menu now just contains
-    a 'Configure...' entry which opens settings dialog at relevent page.
+    a 'Configure...' entry which opens settings dialog at relevant page.
 34. Add new view style "Basic Tree (No Icons)". This is as per the simple tree,
     but only images, and not icons, will be shown.
 35. Europe and Canada regions in ListenLive are not re-loadable (as they are
@@ -1222,7 +1222,7 @@
     loading.
 43. Mopidy seems to require all parameters to be quoted.
 44. Only react to back or home action in listviews if view is visible!
-45. Don't allow buttons in main widow to recieve focus.
+45. Don't allow buttons in main widow to receive focus.
 46. Use Ctrl+G as short-cut to show genre combo popup.
 47. Re-focus view when search closed.
 48. Fix handling of playlists with a colon in their name.
@@ -1248,7 +1248,7 @@
 61. Add 'Add To Playlist' menu item to playlists page.
 62. Add 'Table' style view for playlists.
 63. Clicking on title in list/icon view navigates back.
-64. Bundle own copy of symblic media icons - so that these can be recoloured
+64. Bundle own copy of symbolic media icons - so that these can be recoloured
     to match current theme.
 64. Fix searches containing more than 4 words.
 65. Use stretch header class from Clementine for table style views.
@@ -1258,7 +1258,7 @@
     system tray icon. Currently Cantata supplies 2 mono SVGs - one for
     ubuntu-mono-dark and one for ubuntu-mono-light.
 68. Show time-slider position tooltip immediately.
-69. Expand interface if it is collpased and an error or question is to be
+69. Expand interface if it is collapsed and an error or question is to be
     displayed in message widget.
 70. Hack-around issue with message widget not appearing in KDE builds when
     KDE's animations are disabled.
@@ -1269,7 +1269,7 @@
     been set. Fixes the case, with Qt5 builds, where a drag is started on the
     cover widget causes interface to expand/collapse.
 75. Change views to scroll-per-pixel.
-76. Don't allow expanding, or collapsing, if maximised or mesasge widget is
+76. Don't allow expanding, or collapsing, if maximised or message widget is
     visible.
 77. Remove embedding of pre-rendered Cantata icons. Cantata requires the SVG
     icon plugin, so users must have this installed.
@@ -1416,7 +1416,7 @@
 48. Provide a CMake option to control whether KWallet is used to store MPD
     passwords for KDE builds.
 49. Display total cache usage in Cache settings.
-50. Fix updating of current collecion in Cantata's menu when current collection
+50. Fix updating of current collection in Cantata's menu when current collection
     is set in settings dialog.
 51. Only load ListenLive categories when requested.
 52. In artists and albums views, add 'Add Albums In Random Order' entry to
@@ -1486,7 +1486,7 @@
  7. If no icon is to be used on a message-box button, then ensure the icon is
     cleared.
  8. Fix display of album year in playqueue for KDE builds.
- 9. If we recieve an error from MPD via status, then display this in the main
+ 9. If we receive an error from MPD via status, then display this in the main
     window.
 10. Don't react twice to every volume change. Volume was changing in 10%
     increments, whereas it should have been (and is now) 5%
@@ -1593,7 +1593,7 @@
 31. Prompt before removing dynamic rules - to be consistent with streams and
     playlists.
 32. Add option to replaygain dialog to show only untagged tracks.
-33. Automatic accelator assignment for Qt builds.
+33. Automatic accelerator assignment for Qt builds.
 34. Add cmake check to see if TagLib has id3version in MPEG save.
 35. RTL fixes.
 36. For Qt4 Linux builds, use system QJson if found.
@@ -1718,7 +1718,7 @@
 -----
   1. Give tooltips to view actions.
   2. Add 'Set Album Artist from Artist' action to tag editor.
-  3. Add option to specify max cover size when transfering to device.
+  3. Add option to specify max cover size when transferring to device.
   4. Remove 'Small Control Buttons' and 'Small Playback Buttons' options.
   5. Prompt before disconnecting a device.
   6. For playqueue items, if we only have a filename, and no artist, etc, then
@@ -1738,7 +1738,7 @@
      started for the first time.
  12. Add a 'Cache' page to settings dialog, allowing cache usage to be displayed
      and cache items deleted.
- 13. Move group warning to last stage of intial settings wizard.
+ 13. Move group warning to last stage of initial settings wizard.
  14. Basic cover fetching dialog, allowing to change downloaded cover. Currently
      Last.fm, Google, Discogs, and CoverArtArchive are used to find images. To
      enable searching via Amazon, you need to obtain an 'access key' and a
@@ -1791,7 +1791,7 @@
  42. If we are using QGtkStyle and this is set to Ambiance or Radiance, then
      apply a corresponding stylesheet to the toolbar - and allow window to be
      dragged by toolbar.
- 43. If fetching artist images for a song, and the song-folder heirarchy is 2
+ 43. If fetching artist images for a song, and the song-folder hierarchy is 2
      levels (artist/album/), then save image as artist.jpg/png within the artist
      folder. (Only if 'save downloaded covers in music folder' is enabled)
  44. Work-around QGtkStyle issues with large entries in comboboxes.
@@ -1815,7 +1815,7 @@
  56. Support reading of lyrics from HTTP server - specify a HTTP url as MPD
      music path.
  57. Hack-around QGtkStyle focus issues if a spin-box is set to have no buttons.
-     Cantata's Gtk3 style spin boxes are mimiced using a spin-box with no
+     Cantata's Gtk3 style spin boxes are mimicked using a spin-box with no
      buttons, and 2 toolbuttons. QGtkStyle messes up the widget focus if this is
      used, so Cantata's spin box attempts to work-around this.
  58. Improve look of Gtk3 style spinbox.
@@ -1868,7 +1868,7 @@
      than the middle.
  89. Middle click volume button to mute/unmute.
  90. Stream/category icons.
- 91. When dynamic mod is active, and dynamic tab is not shown, show stop dymamic
+ 91. When dynamic mod is active, and dynamic tab is not shown, show stop dynamic
      button.
  92. Add support for 'Auto' replaygain setting.
  93. When opening ffmpeg codec (for replaygain), try to open for 'float'
@@ -1963,7 +1963,7 @@
     restoring the Cantata window from the Unity menubar.
 18. Use freedesktop.org notifications for Qt-only Linux builds.
 19. Show menubar when run under Unity (Qt-only build).
-20. Improve MPRISv2 interface - signal when proprties change.
+20. Improve MPRISv2 interface - signal when properties change.
 21. Play/Pause track when middle click on tray icon for Qt-only builds (KDE
     builds already have this). Thanks to spartanj for the patch.
 22. Remove faded icons from background of sync dialog views (as these did not
@@ -2381,7 +2381,7 @@
     found.
 13. Add a 'Locate In Library' action, to locate the selected play queue track
     in the library page.
-14. Fix crash when quiting Cantata whilst devices are being scanned.
+14. Fix crash when quitting Cantata whilst devices are being scanned.
 15. Disable JavaScript for webview, this removes the 'Show'/'Hide' buttons from
     wikipedia pages.
 16. Set font family for info page. (KDE only)
@@ -2722,7 +2722,7 @@ SVN:Sat Oct  2 01:12:24 CEST 2010
 * fixed moving around songs in playlist which are not in sequential order
   (Ctrl+Click -> Move) (all songs are moved together in sequential order onto
   the destination position, spaces between them disappear)
-* preserve playlist selections over refreshs (primary usefull when moving around
+* preserve playlist selections over refreshes (primary useful when moving around
   songs in playlist)
 * searchable playlist
 * added icons to library view (different icons for nodetypes and maybe scaled
@@ -2762,7 +2762,7 @@ fixed:
   play list
 * fix a segfault when adding a selection containing one or more artists to the
   playlist
-* Now only items displayed in the library can be added to the playlist (usefull
+* Now only items displayed in the library can be added to the playlist (useful
   when searching)
 * Fixed the restoring of the playlist
 * Check for duplicates when adding from the DirView

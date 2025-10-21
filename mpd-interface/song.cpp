@@ -409,21 +409,21 @@ QString Song::displayAlbum(const QString &albumName, quint16 albumYear)
     return albumYear>0 ? albumName+QLatin1String(" (")+QString::number(albumYear)+QLatin1Char(')') : albumName;
 }
 
-static QSet<QString> prefixesToIngore=QSet<QString>() << QLatin1String("The");
+static QSet<QString> prefixesToIgnore=QSet<QString>() << QLatin1String("The");
 
 QSet<QString> Song::ignorePrefixes()
 {
-    return prefixesToIngore;
+    return prefixesToIgnore;
 }
 
 void Song::setIgnorePrefixes(const QSet<QString> &prefixes)
 {
-    prefixesToIngore=prefixes;
+    prefixesToIgnore=prefixes;
 }
 
 static QString ignorePrefix(const QString &str)
 {
-    for (const QString &p: prefixesToIngore) {
+    for (const QString &p: prefixesToIgnore) {
         if (str.startsWith(p+QLatin1Char(' '))) {
             return str.mid(p.length()+1)+QLatin1String(", ")+p;
         }

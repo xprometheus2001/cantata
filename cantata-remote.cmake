@@ -24,7 +24,7 @@
 #
 #  ---------------------------------------------------------------------
 #
-#  This shell scrpt is intended to be invoked from the Cantata badge on
+#  This shell script is intended to be invoked from the Cantata badge on
 #  the unity task bar.
 #
 

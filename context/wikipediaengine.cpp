@@ -217,9 +217,9 @@ static QString wikiToHtml(QString answer, bool introOnly, const QUrl &url)
     answer = strip(answer, "{{", "}}"); // strip wiki internal stuff
     answer.replace("&lt;", "<").replace("&gt;", ">");
     answer = strip(answer, "<!--", "-->"); // strip comments
-    answer.remove(QRegularExpression("<ref[^>]*/>")); // strip inline refereces
-    answer = strip(answer, "<ref", "</ref>", "<ref"); // strip refereces
-//     answer = strip(answer, "<ref ", "</ref>", "<ref"); // strip argumented refereces
+    answer.remove(QRegularExpression("<ref[^>]*/>")); // strip inline references
+    answer = strip(answer, "<ref", "</ref>", "<ref"); // strip references
+//     answer = strip(answer, "<ref ", "</ref>", "<ref"); // strip argumented references
     answer = strip(answer, "[[File:", "]]", "[["); // strip images etc
     answer = strip(answer, "[[Image:", "]]", "[["); // strip images etc
 
@@ -313,12 +313,12 @@ WikipediaEngine::WikipediaEngine(QObject *p)
     : ContextEngine(p)
 {
     if (preferredLangs.isEmpty()) {
-        setPreferedLangs(Settings::self()->wikipediaLangs());
+        setPreferredLangs(Settings::self()->wikipediaLangs());
         introOnly=Settings::self()->wikipediaIntroOnly();
     }
 }
 
-void WikipediaEngine::setPreferedLangs(const QStringList &l)
+void WikipediaEngine::setPreferredLangs(const QStringList &l)
 {
     preferredLangs=l;
     if (preferredLangs.isEmpty()) {
@@ -570,7 +570,7 @@ void WikipediaEngine::parsePage()
     }
 
     QString answer(QString::fromUtf8(data));
-    //DBUG <<  "Anser" << answer;
+    //DBUG <<  "Answer" << answer;
     QUrl url=reply->url();
     QString hostLang=getLang(url);
 

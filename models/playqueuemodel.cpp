@@ -307,7 +307,7 @@ QStringList PlayQueueModel::parseUrls(const QStringList &urls)
         return use;
     }
 
-    // Ensure we only have unqiue URLs...
+    // Ensure we only have unique URLs...
     QSet<QString> unique;
     for (const auto &u: useable) {
         if (!unique.contains(u)) {

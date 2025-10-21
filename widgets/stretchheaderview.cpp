@@ -230,7 +230,7 @@ void StretchHeaderView::SetColumnWidth(int logical, ColumnWidthType width) {
   NormaliseWidths(other_columns);
 }
 
-// makes sure the column will apear no matter what
+// makes sure the column will appear no matter what
 void StretchHeaderView::AssertMinimalColumnWidth(int logical) {
   if (sectionSize(logical) < kMinimumColumnWidth) {
     resizeSection(logical, kMinimumColumnWidth);

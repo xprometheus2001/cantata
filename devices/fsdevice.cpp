@@ -239,7 +239,7 @@ bool FsDevice::readOpts(const QString &fileName, DeviceOptions &opts, bool readA
             } else if (line.startsWith(constAutoScanKey+"=")) {
                 opts.autoScan=QLatin1String("true")==line.section('=', 1, 1);
             } else if (readAll) {
-                // For UMS these are stored in .is_audio_player - for Amarok compatability!
+                // For UMS these are stored in .is_audio_player - for Amarok compatibility!
                 if (line.startsWith(constMusicFilenameSchemeKey+"=")) {
                     QString scheme = line.section('=', 1, 1);
                     //protect against empty setting.
@@ -271,7 +271,7 @@ static inline QString toString(bool b)
 void FsDevice::writeOpts(const QString &fileName, const DeviceOptions &opts, bool writeAll)
 {
     DeviceOptions def(constDefCoverFileName);
-    // If we are just using the defaults, then mayas wel lremove the file!
+    // If we are just using the defaults, then may as well remove the file!
     if ( (writeAll && opts==def) ||
          (!writeAll && opts.coverName==constDefCoverFileName && 0==opts.coverMaxSize && opts.fixVariousArtists!=def.fixVariousArtists &&
           opts.transcoderCodec.isEmpty() && opts.useCache==def.useCache && opts.autoScan!=def.autoScan)) {
@@ -642,7 +642,7 @@ void FsDevice::cleanDirsResult(int status)
     emit actionStatus(status);
 }
 
-void FsDevice::initScaner()
+void FsDevice::initScanner()
 {
     if (!scanner) {
         static bool registeredTypes=false;
@@ -665,7 +665,7 @@ void FsDevice::initScaner()
 void FsDevice::startScanner(bool fullScan)
 {
     stopScanner();
-    initScaner();
+    initScanner();
     QSet<FileOnlySong> existingSongs;
     if (!fullScan) {
         QSet<Song> songs=allSongs();
@@ -729,7 +729,7 @@ void FsDevice::saveCache()
 {
     if (opts.useCache) {
         state=SavingCache;
-        initScaner();
+        initScanner();
         emit saveCache(cacheFileName(), this);
     }
 }

@@ -47,7 +47,7 @@ QString Configuration::getFilePath(const QString &key, const QString &def)
     #ifdef Q_OS_WIN
     return Utils::fixPath(QDir::fromNativeSeparators(get(key, def)), false);
     #else
-    return Utils::tildaToHome(Utils::fixPath(get(key, def), false));
+    return Utils::tildeToHome(Utils::fixPath(get(key, def), false));
     #endif
 }
 
@@ -56,7 +56,7 @@ QString Configuration::getDirPath(const QString &key, const QString &def)
     #ifdef Q_OS_WIN
     return Utils::fixPath(QDir::fromNativeSeparators(get(key, def)));
     #else
-    return Utils::tildaToHome(Utils::fixPath(get(key, def)));
+    return Utils::tildeToHome(Utils::fixPath(get(key, def)));
     #endif
 }
 

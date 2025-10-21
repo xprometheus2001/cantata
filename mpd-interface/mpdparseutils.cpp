@@ -798,7 +798,7 @@ QList<Partition> MPDParseUtils::parsePartitions(const QByteArray &data)
     return partitions;
 }
 
-QList<Output> MPDParseUtils::parseOuputs(const QByteArray &data)
+QList<Output> MPDParseUtils::parseOutputs(const QByteArray &data)
 {
     QList<Output> outputs;
     QList<QByteArray> lines = data.split('\n');

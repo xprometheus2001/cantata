@@ -371,15 +371,15 @@ void Scrobbler::calcScrobbleIntervals()
     if (elapsed<0) {
         elapsed=0;
     }
-    int nowPlayingTimemout=constNowPlayingInterval;
+    int nowPlayingTimeout=constNowPlayingInterval;
     if (elapsed>4000) {
-        nowPlayingTimemout=10;
+        nowPlayingTimeout=10;
     } else {
-        nowPlayingTimemout-=elapsed;
+        nowPlayingTimeout-=elapsed;
     }
-    nowPlayingTimer->setInterval(nowPlayingTimemout);
+    nowPlayingTimer->setInterval(nowPlayingTimeout);
     int timeout=qMin(currentSong.length/2, (quint32)240)*1000; // Scrobble at 1/2 way point or 4 mins - whichever comes first!
-    DBUG << "timeout" << timeout << elapsed << nowPlayingTimemout;
+    DBUG << "timeout" << timeout << elapsed << nowPlayingTimeout;
     if (timeout>elapsed) {
         timeout-=elapsed;
     } else {

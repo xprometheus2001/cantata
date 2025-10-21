@@ -57,7 +57,7 @@ class MPDStats : public QObject
 public:
     static MPDStats * self();
 
-    // NOTE: There are no read/write locks aroud these values as they are read/written only from the GUI thread...
+    // NOTE: There are no read/write locks around these values as they are read/written only from the GUI thread...
     quint32 artists() const { return values.artists; }
     quint32 albums() const { return values.albums; }
     quint32 songs() const { return values.songs; }

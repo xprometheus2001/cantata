@@ -229,7 +229,7 @@ void HttpStream::updateStatus()
     state = status->state();
     switch (status->state()) {
     case MPDState_Playing:
-        // Only start playback if not aready playing
+        // Only start playback if not already playing
         if (playerNeedsToStart) {
             #ifdef LIBVLC_FOUND
             libvlc_media_player_play(player);

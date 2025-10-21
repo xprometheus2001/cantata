@@ -60,7 +60,7 @@ WikipediaLoader::~WikipediaLoader()
 
 void WikipediaLoader::load(const QByteArray &data)
 {
-    QStringList preferred=WikipediaEngine::getPreferedLangs();
+    QStringList preferred=WikipediaEngine::getPreferredLangs();
     QXmlStreamReader xml(data);
 
     while (!xml.atEnd() && !xml.hasError()) {
@@ -143,7 +143,7 @@ void WikipediaSettings::save()
         pref.append("en:en");
     }
     Settings::self()->saveWikipediaLangs(pref);
-    WikipediaEngine::setPreferedLangs(pref);
+    WikipediaEngine::setPreferredLangs(pref);
 }
 
 void WikipediaSettings::cancel()

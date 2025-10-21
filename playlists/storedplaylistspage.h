@@ -83,7 +83,7 @@ private:
     Action *renamePlaylistAction;
     Action *removeDuplicatesAction;
     Action *removeInvalidAction;
-    Action *intitiallyCollapseAction;
+    Action *initiallyCollapseAction;
     PlaylistsProxyModel proxy;
 };
 

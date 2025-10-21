@@ -8,7 +8,7 @@
 
 - Devices
   - libMTP does not support album artist tag. Cantata contains some
-    work-arounds for this (such as guessing the album-artist tag via the folder
+    workarounds for this (such as guessing the album-artist tag via the folder
     structure, etc). These should be removed if libMTP ever supports album
     artist.
   - Port to MTP DBus service when this is released.

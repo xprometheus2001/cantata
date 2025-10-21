@@ -95,14 +95,14 @@ public:
         QList<Item *> loadXml(const QString &fileName);
         virtual QList<Item *> loadXml(QIODevice *dev);
         virtual void addHeaders(QNetworkRequest &) { }
-        virtual NetworkJob * fetchSecondardyUrl() { return nullptr; }
+        virtual NetworkJob * fetchSecondaryUrl() { return nullptr; }
 
         State state;
         bool isAll : 1;
         bool isBookmarks : 1; // 'Virtual' bookmarks category...
         bool supportsBookmarks : 1; // Intended for top-level items, indicates if bookmarks can be added
         bool canBookmark : 1; // Can this category be bookmark'ed in top-level parent? can have the cache
-        bool addCatToModifiedName : 1; // When adding to playqueue/favourites, should name contian category?
+        bool addCatToModifiedName : 1; // When adding to playqueue/favourites, should name contain category?
         QList<Item *> children;
         QIcon icon;
         QString cacheName;
@@ -134,7 +134,7 @@ public:
                               const QString &cn=QString(), const QString &bn=QString())
             : CategoryItem(u, n, p, i, cn, bn) { }
         void addHeaders(QNetworkRequest &req) override;
-        NetworkJob * fetchSecondardyUrl() override;
+        NetworkJob * fetchSecondaryUrl() override;
         QString fullUrl() const override { return ApiKeys::self()->addKey(url, ApiKeys::ShoutCast); }
     };
 

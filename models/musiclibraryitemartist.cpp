@@ -147,11 +147,11 @@ MusicLibraryItemAlbum * MusicLibraryItemArtist::getAlbum(const QString &key) con
     QList<MusicLibraryItem *>::ConstIterator it=m_childItems.constBegin();
     QList<MusicLibraryItem *>::ConstIterator end=m_childItems.constEnd();
     for (int i=0; it!=end; ++it, ++i) {
-        MusicLibraryItemAlbum *currenAlbum=static_cast<MusicLibraryItemAlbum *>(*it);
-        if (!al && currenAlbum->albumId()==key) {
-            al=currenAlbum;
+        MusicLibraryItemAlbum *currentAlbum=static_cast<MusicLibraryItemAlbum *>(*it);
+        if (!al && currentAlbum->albumId()==key) {
+            al=currentAlbum;
         }
-        m_indexes.insert(currenAlbum->albumId(), i);
+        m_indexes.insert(currentAlbum->albumId(), i);
     }
     return al;
 }

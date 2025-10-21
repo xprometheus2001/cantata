@@ -89,25 +89,25 @@ QString Utils::fixPath(const QString &dir, bool ensureEndsInSlash)
 }
 
 #ifndef Q_OS_WIN
-static const QLatin1String constTilda("~");
-QString Utils::homeToTilda(const QString &s)
+static const QLatin1String constTilde("~");
+QString Utils::homeToTilde(const QString &s)
 {
     QString hp=QDir::homePath();
     if (s==hp) {
-        return constTilda;
+        return constTilde;
     }
     if (s.startsWith(hp+constDirSepStr)) {
-        return constTilda+fixPath(s.mid(hp.length()), false);
+        return constTilde+fixPath(s.mid(hp.length()), false);
     }
     return s;
 }
 
-QString Utils::tildaToHome(const QString &s)
+QString Utils::tildeToHome(const QString &s)
 {
-    if (s==constTilda) {
+    if (s==constTilde) {
         return fixPath(QDir::homePath());
     }
-    if (s.startsWith(constTilda+constDirSep)) {
+    if (s.startsWith(constTilde+constDirSep)) {
         return fixPath(QDir::homePath()+constDirSepStr+s.mid(1), false);
     }
     return s;
@@ -279,7 +279,7 @@ QString Utils::convertPathForDisplay(const QString &path, bool isFolder)
         p=p.left(p.length()-1);
     }
     /* TODO: Display ~/Music or /home/user/Music / /Users/user/Music ???
-    p=homeToTilda(QDir::toNativeSeparators(p));
+    p=homeToTilde(QDir::toNativeSeparators(p));
     */
     return QDir::toNativeSeparators(isFolder && p.endsWith(constDirSep) ? p.left(p.length()-1) : p);
 }
@@ -294,7 +294,7 @@ QString Utils::convertPathFromDisplay(const QString &path, bool isFolder)
     if (p.startsWith(constHttp) || p.startsWith(constHttps)) {
         return fixPath(p);
     }
-    return tildaToHome(fixPath(QDir::fromNativeSeparators(p), isFolder));
+    return tildeToHome(fixPath(QDir::fromNativeSeparators(p), isFolder));
 }
 
 #ifndef Q_OS_WIN
@@ -340,7 +340,7 @@ gid_t Utils::getGroupId(const char *groupName)
 
 /*
  * Set file permissions.
- * If user is a memeber of "users" group, then set file as owned by and writeable by "users" group.
+ * If user is a member of "users" group, then set file as owned by and writeable by "users" group.
  */
 void Utils::setFilePerms(const QString &file, const char *groupName)
 {
@@ -367,7 +367,7 @@ void Utils::setFilePerms(const QString &file, const char *groupName)
 
 /*
  * Create directory, and set its permissions.
- * If user is a memeber of "audio" group, then set dir as owned by and writeable by "audio" group.
+ * If user is a member of "audio" group, then set dir as owned by and writeable by "audio" group.
  */
 bool Utils::createWorldReadableDir(const QString &dir, const QString &base, const char *groupName)
 {

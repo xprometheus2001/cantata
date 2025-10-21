@@ -64,9 +64,9 @@ public:
     void         removeEntry(const QString &key)                 { remove(key); }
     int          get(const QString &key, int def, int min, int max);
     QString      getFilePath(const QString &key, const QString &def);
-    void         setFilePath(const QString &key, const QString &val) { return set(key, Utils::homeToTilda(val)); }
+    void         setFilePath(const QString &key, const QString &val) { return set(key, Utils::homeToTilde(val)); }
     QString      getDirPath(const QString &key, const QString &def);
-    void         setDirPath(const QString &key, const QString &val) { return set(key, Utils::homeToTilda(val)); }
+    void         setDirPath(const QString &key, const QString &val) { return set(key, Utils::homeToTilde(val)); }
 };
 
 #endif

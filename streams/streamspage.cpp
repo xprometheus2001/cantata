@@ -99,7 +99,7 @@ StreamsBrowsePage::StreamsBrowsePage(QWidget *p)
     exportAction = new Action(MonoIcon::icon(FontAwesome::arrowleft, iconCol), tr("Export Favorite Streams"), this);
     addAction = ActionCollection::get()->createAction("addstream", tr("Add New Stream To Favorites"));
     editAction = new Action(Icons::self()->editIcon, tr("Edit"), this);
-    searchAction = new Action(Icons::self()->searchIcon, tr("Seatch For Streams"), this);
+    searchAction = new Action(Icons::self()->searchIcon, tr("Search For Streams"), this);
     connect(searchAction, SIGNAL(triggered()), this, SIGNAL(searchForStreams()));
 //     connect(view, SIGNAL(itemsSelected(bool)), addToPlaylist, SLOT(setEnabled(bool)));
     connect(view, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(itemDoubleClicked(const QModelIndex &)));

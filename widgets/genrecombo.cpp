@@ -96,7 +96,7 @@ void GenreCombo::update(const QSet<QString> &g)
         }
     }
     setEnabled(count()>1);
-    // If we are 'hidden' then we need to ingore mouse events - so that these get passed to parent widget.
+    // If we are 'hidden' then we need to ignore mouse events - so that these get passed to parent widget.
     // The Oxygen's window drag still functions...
     setAttribute(Qt::WA_TransparentForMouseEvents, count()<2);
 }

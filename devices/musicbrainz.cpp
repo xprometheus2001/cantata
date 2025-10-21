@@ -334,7 +334,7 @@ void MusicBrainz::lookup(bool full)
                                     song.file=QString("%1.wav").arg(song.track);
 
                                     // Prefer title and artist from the track credits, but it appears to be empty if same as in Recording
-                                    // Noticable in the musicbrainztest-fulldate test, where the title on the credits of track 18 are
+                                    // Noticeable in the musicbrainztest-fulldate test, where the title on the credits of track 18 are
                                     // "Bara om min älskade väntar", but the recording has title "Men bara om min älskade"
                                     if (recording && 0==track->ArtistCredit()) {
                                         song.artist=artistFromCreditList(recording->ArtistCredit());

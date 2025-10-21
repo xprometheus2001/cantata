@@ -47,7 +47,7 @@
 
 static const char *constNameKey="name";
 
-const int ArtistView::constCacheAge=0; // 0 => dont automatically clean cache
+const int ArtistView::constCacheAge=0; // 0 => don't automatically clean cache
 const QLatin1String ArtistView::constCacheDir("artists/");
 const QLatin1String ArtistView::constInfoExt(".html.gz");
 const QLatin1String ArtistView::constSimilarInfoExt(".txt");
@@ -108,7 +108,7 @@ ArtistView::ArtistView(QWidget *parent)
     text->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(text, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showContextMenu(QPoint)));
     setStandardHeader(tr("Artist"));
-   
+
     int imageHeight=fontMetrics().height()*14;
     int imageWidth=imageHeight*1.5;
     setPicSize(QSize(imageWidth, imageHeight));

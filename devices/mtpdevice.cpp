@@ -104,7 +104,7 @@ MtpConnection::MtpConnection(const QString &id, unsigned int bus, unsigned int d
     , abortRequested(false)
     , busNum(bus)
     , devNum(dev)
-    , supprtAlbumArtistTag(aaSupport)
+    , supportAlbumArtistTag(aaSupport)
 {
     size=0;
     used=0;
@@ -402,7 +402,7 @@ void MtpConnection::updateLibrary(const DeviceOptions &opts)
             }
         }
         #endif
-        if (!artistItem || (supprtAlbumArtistTag ? s.albumArtistOrComposer()!=artistItem->data() : s.artist!=artistItem->data())) {
+        if (!artistItem || (supportAlbumArtistTag ? s.albumArtistOrComposer()!=artistItem->data() : s.artist!=artistItem->data())) {
             artistItem = library->artist(s);
         }
         if (!albumItem || albumItem->parentItem()!=artistItem || s.albumName()!=albumItem->data()) {
@@ -455,8 +455,8 @@ void MtpConnection::updateLibrary(const DeviceOptions &opts)
                     tracks.insert(s->track());
                 }
             }
-            // If an album has mutiple tracks with the same track number, then we probably have X albums
-            // by X artists - in which case we proceeed no further.
+            // If an album has multiple tracks with the same track number, then we probably have X albums
+            // by X artists - in which case we proceed no further.
             if (!duplicateTrackNumbers) {
                 MtpFolder &f=folders[(*it).folder];
                 // Now, check to see if all artists contain 'shortestArtist'. If so then use 'shortestArtist' as the album
@@ -945,7 +945,7 @@ void MtpConnection::putSong(const Song &s, bool fixVa, const DeviceOptions &opts
     }
 }
 
-MtpConnection::File MtpConnection::getCoverDetils(const Song &s)
+MtpConnection::File MtpConnection::getCoverDetails(const Song &s)
 {
     File cover;
     Path path=decodePath(s.file);
@@ -973,7 +973,7 @@ void MtpConnection::getSong(const Song &song, const QString &dest, bool fixVa, b
         QString destDir=Utils::getDir(dest);
 
         if (QDir(destDir).entryList(QStringList() << QLatin1String("*.jpg") << QLatin1String("*.png"), QDir::Files|QDir::Readable).isEmpty()) {
-            File cover=getCoverDetils(song);
+            File cover=getCoverDetails(song);
 
             if (0!=cover.id) {
                 QString fileName=QString(destDir+Covers::albumFileName(song)+(cover.name.endsWith(".jpg", Qt::CaseInsensitive) ? ".jpg" : ".png"));
@@ -1090,7 +1090,7 @@ void MtpConnection::cleanDirs(const QSet<QString> &dirs)
 
 void MtpConnection::getCover(const Song &song)
 {
-    File c=getCoverDetils(song);
+    File c=getCoverDetails(song);
 
     COVER_DBUG << c.name << c.id;
 

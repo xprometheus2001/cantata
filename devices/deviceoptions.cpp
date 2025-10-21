@@ -214,7 +214,7 @@ static const QLatin1String constSpacesKey("replaceSpaces");
 static const QLatin1String constTransCodecKey("transcoderCodec");
 static const QLatin1String constTransValKey("transcoderValue");
 static const QLatin1String constTransIfDiffKey("transcoderWhenDifferent");
-static const QLatin1String constTransIfLosslessKey("transcoderWhenSourceIsLosssless");
+static const QLatin1String constTransIfLosslessKey("transcoderWhenSourceIsLossless");
 static const QLatin1String constTransWhenKey("transcoderWhen");
 #endif
 static const QLatin1String constUseCacheKey("useCache");

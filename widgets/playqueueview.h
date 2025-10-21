@@ -138,8 +138,8 @@ private:
 
     BackgroundImage backgroundImageType;
     QPropertyAnimation animator;
-    QImage curentCover;
-    QPixmap curentBackground;
+    QImage currentCover;
+    QPixmap currentBackground;
     QPixmap previousBackground;
     QSize lastBgndSize;
     double fadeValue;

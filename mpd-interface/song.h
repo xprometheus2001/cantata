@@ -267,7 +267,7 @@ struct Song
     }
     bool isComposerImageRequest() const { return 0x1E==disc && 0xFE==priority && 0xFEFE==key && album.isEmpty(); }
 
-    // In Covers, the following is used to indicate that a specfic size is requested...
+    // In Covers, the following is used to indicate that a specific size is requested...
     void setSpecificSizeRequest(int sz) {
         size=track=id=sz;
         time=0xFFFF;

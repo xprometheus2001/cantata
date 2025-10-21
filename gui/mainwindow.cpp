@@ -1410,7 +1410,7 @@ void MainWindow::outputsUpdated(const QList<Output> &outputs)
 {
     const char *constMpdConName="mpd-name";
     const char *constMpdPartitionName="mpd-partition";
-    const char *constMpdEnabledOuptuts="mpd-outputs";
+    const char *constMpdEnabledOutputs="mpd-outputs";
     QString lastConn=property(constMpdConName).toString();
     QString lastPart=property(constMpdPartitionName).toString();
     QString newConn=MPDConnection::self()->getDetails().name;
@@ -1421,7 +1421,7 @@ void MainWindow::outputsUpdated(const QList<Output> &outputs)
     QSet<QString> enabledMpd;
     QSet<QString> inCurrentPartitionMpd;
     QSet<QString> inOtherPartitionMpd;
-    QSet<QString> lastEnabledMpd=Utils::listToSet(property(constMpdEnabledOuptuts).toStringList());
+    QSet<QString> lastEnabledMpd=Utils::listToSet(property(constMpdEnabledOutputs).toStringList());
     QSet<QString> menuItems;
     QSet<QString> menuMoveableItems;
     QMenu *menu=outputsAction->menu();
@@ -1508,7 +1508,7 @@ void MainWindow::outputsUpdated(const QList<Output> &outputs)
                                   tr("Disabled: %1").arg(off.join(QLatin1String(", "))));
         }
     }
-    setProperty(constMpdEnabledOuptuts, QStringList() << enabledMpd.values());
+    setProperty(constMpdEnabledOutputs, QStringList() << enabledMpd.values());
     outputsAction->setVisible(outputs.count()>(MPDConnection::self()->canUsePartitions() ? 0 : 1));
     trayItem->updateOutputs();
 }

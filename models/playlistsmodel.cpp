@@ -747,7 +747,7 @@ void PlaylistsModel::setPlaylists(const QList<Playlist> &playlists)
     } else {
         QModelIndex parent=QModelIndex();
         QSet<QString> existing;
-        QSet<QString> retreived;
+        QSet<QString> retrieved;
         QSet<QString> removed;
         QSet<QString> added;
 
@@ -756,7 +756,7 @@ void PlaylistsModel::setPlaylists(const QList<Playlist> &playlists)
         }
 
         for (const Playlist &p: playlists) {
-            retreived.insert(p.name);
+            retrieved.insert(p.name);
             PlaylistItem *pl=getPlaylist(p.name);
 
             if (pl && pl->lastModified<p.lastModified) {
@@ -767,8 +767,8 @@ void PlaylistsModel::setPlaylists(const QList<Playlist> &playlists)
             }
         }
 
-        removed=existing-retreived;
-        added=retreived-existing;
+        removed=existing-retrieved;
+        added=retrieved-existing;
 
         if (removed.count()) {
             for (const QString &p: removed) {
@@ -808,7 +808,7 @@ void PlaylistsModel::playlistInfoRetrieved(const QString &name, const QList<Song
         QModelIndex idx=createIndex(items.indexOf(pl), 0, pl);
 
         // If Cantata moves songs, then movedInPlaylist() is called. Likwise if
-        // Cantata deltes songs, removedFromPlaylist() is called. Therefore, no
+        // Cantata deletes songs, removedFromPlaylist() is called. Therefore, no
         // need to do partial updates here. If another client does a move whilst
         // a playlist has duplicate songs, then it can fail. #873
         if (!pl->songs.isEmpty()) {

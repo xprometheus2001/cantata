@@ -125,8 +125,8 @@ static double indexToMarker(const QString &index)
         return -1.0;
     }
 
-    QStringList splitted = indexMatch.capturedTexts().mid(1, -1);
-    qlonglong frames = splitted.at(0).toLongLong() * 60 * 75 + splitted.at(1).toLongLong() * 75 + splitted.at(2).toLongLong();
+    QStringList split = indexMatch.capturedTexts().mid(1, -1);
+    qlonglong frames = split.at(0).toLongLong() * 60 * 75 + split.at(1).toLongLong() * 75 + split.at(2).toLongLong();
     return (frames * constMsecPerSec) / 75.0;
 }
 
@@ -149,7 +149,7 @@ static bool indexTime(const QString &index, const QString &nextIndex, int &time)
 
 // Updates the lastTrackIndex time (in seconds) using the index of the last track (song).
 // This one must be used ONLY for the last track (song).
-//      note: the last song time will be calculate dinamically later
+//      note: the last song time will be calculate dynamically later
 //            (see: MPDParseUtils::parseDirItems in mpd-interface/mpdparseutils.cpp )
 static bool indexLastTime(const QString &index, double &lastTrackIndex)
 {
@@ -160,7 +160,7 @@ static bool indexLastTime(const QString &index, double &lastTrackIndex)
         DBUG << "Failed to calculate *last* time - index:" << index << "beginning:" << beginning;
         return false;
     }
-    // note: the last song duration will be calculate dinamically
+    // note: the last song duration will be calculate dynamically
     //       (see: MPDParseUtils::parseDirItems in mpd-interface/mpdparseutils.cpp )
     lastTrackIndex = beginning;
     return true;
@@ -324,15 +324,15 @@ bool CueFile::parse(const QString &fileName, const QString &dir, QList<Song> &so
             continue;
         }
 
-        QStringList splitted = splitCueLine(line);
+        QStringList split = splitCueLine(line);
         // incorrect line
-        if (splitted.size() < 3 ) {
+        if (split.size() < 3 ) {
             continue;
         }
         // logical parts in the CUE line
-        QString cmdRem = splitted[0].toLower();
-        QString cmdCmd = splitted[1].toLower();
-        QString cmdVal = splitted[2].trimmed();
+        QString cmdRem = split[0].toLower();
+        QString cmdCmd = split[1].toLower();
+        QString cmdVal = split[2].trimmed();
         if (cmdVal.startsWith("\"") && cmdVal.endsWith("\"")) {
             cmdVal = cmdVal.mid(1, cmdVal.size()-2).trimmed();
         }
@@ -343,10 +343,10 @@ bool CueFile::parse(const QString &fileName, const QString &dir, QList<Song> &so
             // get the file type
             if (!cmdVal.isEmpty()) {
                 cmdVal.remove('"').remove("'");
-                QStringList cmdValSplitted = cmdVal.split(QRegularExpression("\\s+"));
-                if (cmdValSplitted.size() == 2) {
-                    file = cmdValSplitted[0].remove("\"");  // file audio: name
-                    fileType = cmdValSplitted[1];           // file audio: type
+                QStringList cmdValSplit = cmdVal.split(QRegularExpression("\\s+"));
+                if (cmdValSplit.size() == 2) {
+                    file = cmdValSplit[0].remove("\"");  // file audio: name
+                    fileType = cmdValSplit[1];           // file audio: type
                 }
             }
             // check if is a valid audio file (else if this is a data file, all of its tracks will be ignored...)
@@ -451,10 +451,10 @@ bool CueFile::parse(const QString &fileName, const QString &dir, QList<Song> &so
                 // here is a new track... get the actual track number and the track type
                 if (!cmdVal.isEmpty()) {
                     cmdVal.remove('"').remove("'");
-                    QStringList cmdValSplitted = cmdVal.split(QRegularExpression("\\s+"));
-                    if (cmdValSplitted.size() == 2) {
-                        trackNo = cmdValSplitted[0];
-                        trackType = cmdValSplitted[1].toLower();
+                    QStringList cmdValSplit = cmdVal.split(QRegularExpression("\\s+"));
+                    if (cmdValSplit.size() == 2) {
+                        trackNo = cmdValSplit[0];
+                        trackType = cmdValSplit[1].toLower();
                     }
                 }
 
@@ -464,11 +464,11 @@ bool CueFile::parse(const QString &fileName, const QString &dir, QList<Song> &so
                 //      note: PREGAP and POSTGAP are NOT handled...
                 if (!cmdVal.isEmpty()) {
                     cmdVal.remove('"').remove("'");
-                    QStringList cmdValSplitted = cmdVal.split(QRegularExpression("\\s+"));
+                    QStringList cmdValSplit = cmdVal.split(QRegularExpression("\\s+"));
                     // if there's none "01" index, we'll just take the first one
                     // also, we'll take the "01" index even if it's the last one
-                    if (cmdValSplitted.size() == 2 && (cmdValSplitted[0]==QLatin1String("01") || cmdValSplitted[0]==QLatin1String("1") || index.isEmpty())) {
-                        index = cmdValSplitted[1];
+                    if (cmdValSplit.size() == 2 && (cmdValSplit[0]==QLatin1String("01") || cmdValSplit[0]==QLatin1String("1") || index.isEmpty())) {
+                        index = cmdValSplit[1];
                     }
                 }
             } else if (cmdCmd == constTitle && !cmdVal.isEmpty()) {

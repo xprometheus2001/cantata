@@ -170,7 +170,7 @@ void MyTestPrivate::doQuux() {
  * \relates <QxtPimpl>
  * Declares that a public class has a related private class.
  *
- * This shuold be put in the private section of the public class. The parameter is the name of the public class.
+ * This should be put in the private section of the public class. The parameter is the name of the public class.
  */
 
 /*!

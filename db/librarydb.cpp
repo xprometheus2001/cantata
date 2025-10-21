@@ -395,7 +395,7 @@ public:
     SqlQuery(const QString &colSpec, QSqlDatabase &database)
             : db(database)
             , fts(false)
-            , columSpec(colSpec)
+            , columnSpec(colSpec)
             , limit(0)
     {
     }
@@ -458,8 +458,8 @@ public:
     bool exec()
     {
         QString sql=fts
-                ? QString("SELECT %1 FROM songs INNER JOIN songs_fts AS fts ON songs.ROWID = fts.ROWID").arg(columSpec)
-                : QString("SELECT %1 FROM songs").arg(columSpec);
+                ? QString("SELECT %1 FROM songs INNER JOIN songs_fts AS fts ON songs.ROWID = fts.ROWID").arg(columnSpec)
+                : QString("SELECT %1 FROM songs").arg(columnSpec);
 
         if (!whereClauses.isEmpty()) {
             sql+=" WHERE " + whereClauses.join(" AND ");
@@ -489,7 +489,7 @@ private:
     QSqlDatabase &db;
     QSqlQuery query;
     bool fts;
-    QString columSpec;
+    QString columnSpec;
     QStringList whereClauses;
     QVariantList boundValues;
     QString order;

@@ -416,7 +416,7 @@ void AcceleratorManagerPrivate::manageWidget(QWidget *w, Item *item)
 void AcceleratorManagerPrivate::manageTabBar(QTabBar *bar, Item *item)
 {
   // ignore QTabBar for QDockWidgets, because QDockWidget on its title change
-  // also updates its tabbar entry, so on the next run of KChecAccelerators
+  // also updates its tabbar entry, so on the next run of KCheckAccelerators
   // this looks like a conflict and triggers a new reset of the shortcuts -> endless loop
   QWidget* parentWidget = bar->parentWidget();
   if( parentWidget )
@@ -625,7 +625,7 @@ void AccelString::calculateWeights(int initialWeight)
     if (pos < 50)
       weight += (50-pos);
 
-    // try to preserve the wanted accelarators
+    // try to preserve the wanted accelerators
     if ((int)pos == accel()) {
         weight += AccelManagerAlgorithm::WANTED_ACCEL_EXTRA_WEIGHT;
         // kDebug(240) << "wanted " << m_pureText << " " << AcceleratorManagerPrivate::standardName(m_origText);

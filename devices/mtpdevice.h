@@ -105,7 +105,7 @@ Q_SIGNALS:
     void cover(const Song &s, const QImage &img);
 
 private:
-    File getCoverDetils(const Song &s);
+    File getCoverDetails(const Song &s);
     bool removeFolder(uint32_t folderId);
     void updateFilesAndFolders();
     void listFolder(uint32_t storage, uint32_t parentDir, Folder *f=0);
@@ -139,7 +139,7 @@ private:
     bool abortRequested;
     unsigned int busNum;
     unsigned int devNum;
-    bool supprtAlbumArtistTag;
+    bool supportAlbumArtistTag;
 };
 
 class MtpDevice : public Device

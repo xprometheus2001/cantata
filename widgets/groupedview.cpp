@@ -697,7 +697,7 @@ void GroupedView::dropEvent(QDropEvent *event)
     QModelIndex parent;
     quint32 dropRowAdjust=0;
     if (model() && viewport()->rect().contains(event->position().toPoint())) {
-        // Dont allow to drop on an already selected row - as this seems to cuase a crash!!!
+        // Dont allow to drop on an already selected row - as this seems to cause a crash!!!
         QModelIndex idx=TreeView::indexAt(event->position().toPoint());
         if (idx.isValid() && selectionModel() && selectionModel()->isSelected(idx)) {
             return;

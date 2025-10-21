@@ -459,7 +459,7 @@ void StreamsModel::ShoutCastCategoryItem::addHeaders(QNetworkRequest &req)
     req.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 }
 
-NetworkJob * StreamsModel::ShoutCastCategoryItem::fetchSecondardyUrl()
+NetworkJob * StreamsModel::ShoutCastCategoryItem::fetchSecondaryUrl()
 {
     if (!url.startsWith(constShoutCastUrl)) {
         // Get stations...
@@ -706,7 +706,7 @@ void StreamsModel::fetchMore(const QModelIndex &index)
             connect(job, SIGNAL(finished()), SLOT(jobFinished()));
             cat->state=CategoryItem::Fetching;
 
-            job=cat->fetchSecondardyUrl();
+            job=cat->fetchSecondaryUrl();
             if (job) {
                 jobs.insert(job, cat);
                 connect(job, SIGNAL(finished()), SLOT(jobFinished()));

@@ -420,9 +420,9 @@ void ContextWidget::readConfig()
 
     useDarkBackground(Settings::self()->contextDarkBackground());
     WikipediaEngine::setIntroOnly(Settings::self()->wikipediaIntroOnly());
-    bool wasCollpased=stack && stack->isVisible();
+    bool wasCollapsed=stack && stack->isVisible();
     alwaysCollapsed=Settings::self()->contextAlwaysCollapsed();
-    if (alwaysCollapsed && !wasCollpased) {
+    if (alwaysCollapsed && !wasCollapsed) {
         setWide(false);
     }
 }
