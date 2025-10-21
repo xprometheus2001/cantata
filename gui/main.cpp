@@ -389,7 +389,10 @@ int main(int argc, char *argv[])
     // Create the file if it doesn't exist already
     if (!QFile::exists(s.fileName())) {
         QFile file(s.fileName());
-        file.open(QIODevice::WriteOnly);
+        if (!file.open(QIODevice::WriteOnly)) {
+            qWarning() << "Failed to create file" << file.fileName();
+            return 1;
+        }
     }
 
     // Set -rw-------
